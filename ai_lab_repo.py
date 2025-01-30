@@ -84,6 +84,7 @@ class LaboratoryWorkflow:
         self.postdoc = PostdocAgent(model=self.model_backbone, notes=self.notes, max_steps=self.max_steps, openai_api_key=self.openai_api_key)
         self.professor = ProfessorAgent(model=self.model_backbone, notes=self.notes, max_steps=self.max_steps, openai_api_key=self.openai_api_key)
         self.ml_engineer = MLEngineerAgent(model=self.model_backbone, notes=self.notes, max_steps=self.max_steps, openai_api_key=self.openai_api_key)
+        self.sw_engineer = SWEngineerAgent(model=self.model_backbone, notes=self.notes, max_steps=self.max_steps, openai_api_key=self.openai_api_key)
 
         # remove previous files
         remove_figures()
@@ -120,6 +121,7 @@ class LaboratoryWorkflow:
         setattr(self.postdoc, attr, obj)
         setattr(self.professor, attr, obj)
         setattr(self.ml_engineer, attr, obj)
+        setattr(self.sw_engineer, attr, obj)
 
     def reset_agents(self):
         """
