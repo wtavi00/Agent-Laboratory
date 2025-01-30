@@ -35,9 +35,9 @@ class LaboratoryWorkflow:
         self.arxiv_paper_exp_time = 3
         self.reference_papers = list()
 
-        ##########################################
+        #
         ####### COMPUTE BUDGET PARAMETERS ########
-        ##########################################
+        #
         self.num_ref_papers = 1
         self.review_total_steps = 0 # num steps to take if overridden
         self.arxiv_num_summaries = 5
@@ -634,9 +634,9 @@ if __name__ == "__main__":
     if not api_key:
         raise ValueError("API key must be provided via --api-key or the OPENAI_API_KEY environment variable.")
 
-    ##########################################################
+    #
     # Research question that the agents are going to explore #
-    ##########################################################
+    #
     if human_mode or args.research_topic is None:
         research_topic = input("Please name an experiment idea for AgentLaboratory to perform: ")
     else:
@@ -670,9 +670,9 @@ if __name__ == "__main__":
         "note": f"You should always write in the following language to converse and to write the report {args.language}"},
     )
 
-    ####################################################
-    ###  Stages where human input will be requested  ###
-    ####################################################
+    #
+    """Stages where human input will be requested"""
+    #
     human_in_loop = {
         "literature review":      human_mode,
         "plan formulation":       human_mode,
@@ -683,9 +683,9 @@ if __name__ == "__main__":
         "report refinement":      human_mode,
     }
 
-    ###################################################
-    ###  LLM Backend used for the different phases  ###
-    ###################################################
+    #
+    """LLM Backend used for the different phases"""
+    #
     agent_models = {
         "literature review":      llm_backend,
         "plan formulation":       llm_backend,
@@ -716,9 +716,3 @@ if __name__ == "__main__":
         )
 
     lab.perform_research()
-
-
-
-
-
-
